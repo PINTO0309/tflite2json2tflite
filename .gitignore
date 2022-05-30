@@ -1,2 +1,3 @@
 *.tflite
 *.json
+.bash_history
