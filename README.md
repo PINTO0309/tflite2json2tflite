@@ -1,6 +1,8 @@
 # tflite2json2tflite
 Convert tflite to JSON and make it editable in the IDE. It also converts the edited JSON back to tflite binary.
 
+![GitHub](https://img.shields.io/github/license/PINTO0309/tflite2json2tflite?color=2BAF2B)
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/33194443/170994316-3e3d541c-9a6d-43cb-8ea5-be0201343e03.png" />
 </p>
