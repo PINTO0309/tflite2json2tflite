@@ -4,8 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ARG WKDIR=/home/user
 WORKDIR ${WKDIR}
 
-RUN apt-get update && apt-get install -y \
-        software-properties-common nano sudo \
+RUN apt-get update && apt-get install -y nano sudo \
     && sed -i 's/# set linenumbers/set linenumbers/g' /etc/nanorc \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
