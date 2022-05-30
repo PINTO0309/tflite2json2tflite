@@ -4,7 +4,7 @@ Convert tflite to JSON and make it editable in the IDE. It also converts the edi
 # Usage sample
 ## 1. Docker run
 ```bash
-docker run --rm -it -v `pwd`:/home/user/workdir
+docker run --rm -it -v `pwd`:/home/user/workdir ghcr.io/pinto0309/tflite2json2tflite:latest
 ```
 ## 2. tflite to JSON
 ![image](https://user-images.githubusercontent.com/33194443/170987334-32f5631e-ff71-4e50-9ab6-9554fd3fa0fd.png)
