@@ -37,3 +37,35 @@ sed -i -e 's/fusion\/fusion_3\/BiasAdd/output/g' workdir/model_float32.json
 rm workdir/model_float32.json
 ```
 ![image](https://user-images.githubusercontent.com/33194443/170987592-186f7da4-065f-408a-bc0b-dfe91b19ab9b.png)
+
+## 5. flatbuffers (flatc)
+I have made my own modifications to the official flatbuffers(flatc) to preserve the accuracy of the quantization parameters output to JSON. For more information, please see this issue. [tflite to JSON to tflite quantization error #1](https://github.com/PINTO0309/tflite2json2tflite/issues/1)
+
+https://github.com/google/flatbuffers
+
+- `flatbuffers/include/flatbuffers/util.h`
+  - From:
+    ```cpp
+    template<> inline std::string NumToString<double>(double t) {
+      return FloatToString(t, 12);
+    }
+    template<> inline std::string NumToString<float>(float t) {
+      return FloatToString(t, 6);
+    }
+    ```
+  - To:
+    ```cpp
+    template<> inline std::string NumToString<double>(double t) {
+      return FloatToString(t, 12);
+    }
+    template<> inline std::string NumToString<float>(float t) {
+      return FloatToString(t, 17);
+    }
+    ```
+
+- build
+  ```bash
+  cd flatbuffers && mkdir build && cd build
+  cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
+  make -j$(nproc)
+  ```
